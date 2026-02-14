@@ -6,12 +6,13 @@ deployment:
     - export REPO_PATH=$BASE_PATH/repositories/slt-dev
     - export CONFIG_PATH=$BASE_PATH/configs-slt
     - echo "Copiando Hermosillo"
-    - cp -r $REPO_PATH $DEPLOY_PATH/slt
+    - rsync -a --exclude='.git' "$REPO_PATH" "$DEPLOY_PATH/slt/"
     - cp $CONFIG_PATH/hmo_prod.php $DEPLOY_PATH/slt/config.php
-    - echo "Copiando Hermosillo"
-    - cp -r $REPO_PATH $DEPLOY_PATH/slt-nogales
+    - echo "Copiando Nogales"
+    - rsync -a --exclude='.git' "$REPO_PATH" "$DEPLOY_PATH/slt-nogales/"
     - cp $CONFIG_PATH/nog_prod.php $DEPLOY_PATH/slt-nogales/config.php
-    - echo "Copiando Hermosillo"
-    - cp -r $REPO_PATH $DEPLOY_PATH/slt-obregon
+    - echo "Copiando Obregon"
+    - rsync -a --exclude='.git' "$REPO_PATH" "$DEPLOY_PATH/slt-nogales/"
+    - cp -r $REPO_PATH $DEPLOY_PATH/slt-nogales
     - cp $CONFIG_PATH/obr_prod.php $DEPLOY_PATH/slt-obregon/config.php
     - echo "DEPLOY TERMINADO"
