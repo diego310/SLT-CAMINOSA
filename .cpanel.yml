@@ -1,9 +1,10 @@
 ---
 deployment:
   tasks:
-    - export DEPLOY_PATH=/home/ranchola/public_html/deploytest
-    - export REPO_PATH=/home/ranchola/repositories/slt-dev
-    - export CONFIG_PATH=/home/renchola/configs-slt
+    - export BASE_PATH=/home/ranchola
+    - export DEPLOY_PATH=$BASE_PATH/public_html/deploytest
+    - export REPO_PATH=$BASE_PATH/repositories/slt-dev
+    - export CONFIG_PATH=$BASE_PATH/configs-slt
     - echo "Copiando Hermosillo"
     - cp -r $REPO_PATH $DEPLOY_PATH/slt
     - cp $CONFIG_PATH/hmo_prod.php $DEPLOY_PATH/slt/config.php
