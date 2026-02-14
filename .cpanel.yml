@@ -12,7 +12,7 @@ deployment:
     - rsync -a --exclude='.git' "$REPO_PATH" "$DEPLOY_PATH/slt-nogales/"
     - cp $CONFIG_PATH/nog_prod.php $DEPLOY_PATH/slt-nogales/config.php
     - echo "Copiando Obregon"
-    - rsync -a --exclude='.git' "$REPO_PATH" "$DEPLOY_PATH/slt-nogales/"
+    - rsync -a --exclude='.git' "$REPO_PATH" "$DEPLOY_PATH/slt-obregon/"
     - cp -r $REPO_PATH $DEPLOY_PATH/slt-nogales
     - cp $CONFIG_PATH/obr_prod.php $DEPLOY_PATH/slt-obregon/config.php
     - echo "DEPLOY TERMINADO"
