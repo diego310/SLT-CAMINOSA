@@ -2,7 +2,17 @@
 deployment:
   tasks:
     - export BASE_PATH=/home/ranchola
-    - export DEPLOY_PATH=$BASE_PATH/public_html/deploytest
+    - export current_branch=$(git rev-parse --abbrev-ref HEAD)
+    - |
+      if [ "$current_branch" == "main" ]; then
+        export DEPLOY_PATH=$BASE_PATH/public_html/deploy_prod
+      elif [ "$current_branch" == "test" ]; then
+        export DEPLOY_PATH=$BASE_PATH/public_html/deploy_test
+      else
+        echo "No deployment path defined for branch: $current_branch"
+        exit 1
+      fi
+    - echo $DEPLOY_PATH
     - export REPO_PATH=$BASE_PATH/repositories/slt-dev
     - export CONFIG_PATH=$BASE_PATH/configs-slt
 
