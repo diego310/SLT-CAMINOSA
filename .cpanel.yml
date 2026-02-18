@@ -12,6 +12,7 @@ deployment:
         echo "No deployment path defined for branch: $current_branch"
         exit 1
       fi
+    - echo "Deploying branch: $current_branch to $DEPLOY_PATH"
     - export REPO_PATH=$BASE_PATH/repositories/slt-dev
     - export CONFIG_PATH=$BASE_PATH/configs-slt
 
